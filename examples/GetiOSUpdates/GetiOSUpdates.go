@@ -7,14 +7,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-
-	"github.com/deploymenttheory/go-api-sdk-sofa/sdk/sofa"
 )
 
 func main() {
 	fmt.Println("Fetching iOS updates...")
 
-	data, err := sofa.GetiOSUpdates()
+	data, err := sofa.
 	if err != nil {
 		log.Fatalf("Error fetching iOS updates: %v", err)
 	}
