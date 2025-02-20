@@ -1,9 +1,9 @@
-// macos_updates_client.go
+// sofa_macos.go
 // SOFA | A MacAdmin's Simple Organized Feed for Apple Software Updates
 // API reference: https://sofafeed.macadmins.io/v1/macos_data_feed.json
 // This client retrieves macOS update data in JSON format.
 
-package sofamacos
+package sofa
 
 import (
 	"encoding/json"
@@ -15,26 +15,26 @@ import (
 // API Endpoint
 const uriAPIMacOSUpdates = "https://sofafeed.macadmins.io/v1/macos_data_feed.json"
 
-// Root represents the top-level structure of the macOS update feed response
-type Root struct {
-	UpdateHash          string                  `json:"UpdateHash"`
-	OSVersions          []OSVersion             `json:"OSVersions"`
-	XProtectPayloads    XProtectPayloads        `json:"XProtectPayloads"`
-	XProtectPlistConfig XProtectPlistConfigData `json:"XProtectPlistConfigData"`
-	Models              map[string]Model        `json:"Models"`
-	InstallationApps    InstallationApps        `json:"InstallationApps"`
+// ResourceSofamacOSRoot represents the top-level structure of the macOS update feed response
+type ResourceSofamacOSRoot struct {
+	UpdateHash          string                       `json:"UpdateHash"`
+	OSVersions          []macOSVersion               `json:"OSVersions"`
+	XProtectPayloads    macOSXProtectPayloads        `json:"XProtectPayloads"`
+	XProtectPlistConfig macOSXProtectPlistConfigData `json:"XProtectPlistConfigData"`
+	Models              map[string]macOSModel        `json:"Models"`
+	InstallationApps    InstallationApps             `json:"InstallationApps"`
 }
 
-// OSVersion represents an operating system version
-type OSVersion struct {
-	OSVersion        string            `json:"OSVersion"`
-	Latest           ReleaseInfo       `json:"Latest"`
-	SecurityReleases []SecurityRelease `json:"SecurityReleases"`
-	SupportedModels  []SupportedModel  `json:"SupportedModels"`
+// macOSVersion  represents an operating system version
+type macOSVersion struct {
+	OSVersion        string                 `json:"OSVersion"`
+	Latest           macOSReleaseInfo       `json:"Latest"`
+	SecurityReleases []macOSSecurityRelease `json:"SecurityReleases"`
+	SupportedModels  []macOSSupportedModel  `json:"SupportedModels"`
 }
 
-// ReleaseInfo represents the latest release information
-type ReleaseInfo struct {
+// macOSReleaseInfo represents the latest release information
+type macOSReleaseInfo struct {
 	ProductVersion        string          `json:"ProductVersion"`
 	Build                 string          `json:"Build"`
 	ReleaseDate           string          `json:"ReleaseDate"`
@@ -46,8 +46,8 @@ type ReleaseInfo struct {
 	UniqueCVEsCount       int             `json:"UniqueCVEsCount"`
 }
 
-// SecurityRelease represents a security update
-type SecurityRelease struct {
+// macOSSecurityRelease represents a security update
+type macOSSecurityRelease struct {
 	UpdateName               string          `json:"UpdateName"`
 	ProductName              string          `json:"ProductName"`
 	ProductVersion           string          `json:"ProductVersion"`
@@ -61,41 +61,41 @@ type SecurityRelease struct {
 	DaysSincePreviousRelease int             `json:"DaysSincePreviousRelease"`
 }
 
-// SupportedModel represents Mac models supported for an OS version
-type SupportedModel struct {
+// macOSSupportedModel represents Mac models supported for an OS version
+type macOSSupportedModel struct {
 	Model       string            `json:"Model"`
 	URL         string            `json:"URL"`
 	Identifiers map[string]string `json:"Identifiers"`
 }
 
-// XProtectPayloads represents security update configurations
-type XProtectPayloads struct {
+// macOSXProtectPayloads represents security update configurations
+type macOSXProtectPayloads struct {
 	XProtectFramework string `json:"com.apple.XProtectFramework.XProtect"`
 	PluginService     string `json:"com.apple.XprotectFramework.PluginService"`
 	ReleaseDate       string `json:"ReleaseDate"`
 }
 
 // XProtectPlistConfigData represents the XProtect configuration data
-type XProtectPlistConfigData struct {
+type macOSXProtectPlistConfigData struct {
 	XProtect    string `json:"com.apple.XProtect"`
 	ReleaseDate string `json:"ReleaseDate"`
 }
 
-// Model represents a Mac model with supported OS versions
-type Model struct {
+// macOSModel represents a Mac model with supported OS versions
+type macOSModel struct {
 	MarketingName string   `json:"MarketingName"`
 	SupportedOS   []string `json:"SupportedOS"`
 	OSVersions    []int    `json:"OSVersions"`
 }
 
-// InstallationApps represents available macOS installation apps
+// macOSInstallationApps represents available macOS installation apps
 type InstallationApps struct {
 	LatestUMA      AppEntry   `json:"LatestUMA"`
 	AllPreviousUMA []AppEntry `json:"AllPreviousUMA"`
 	LatestMacIPSW  MacIPSW    `json:"LatestMacIPSW"`
 }
 
-// AppEntry represents an application entry for macOS installation
+// macOSAppEntry represents an application entry for macOS installation
 type AppEntry struct {
 	Title     string `json:"title"`
 	Version   string `json:"version"`
@@ -113,7 +113,7 @@ type MacIPSW struct {
 }
 
 // GetMacOSUpdates fetches macOS update data from the API
-func GetMacOSUpdates() (*Root, error) {
+func GetMacOSUpdates() (*ResourceSofamacOSRoot, error) {
 	client := &http.Client{Timeout: 10 * time.Second}
 	resp, err := client.Get(uriAPIMacOSUpdates)
 	if err != nil {
@@ -125,7 +125,7 @@ func GetMacOSUpdates() (*Root, error) {
 		return nil, fmt.Errorf("unexpected response code: %d", resp.StatusCode)
 	}
 
-	var data Root
+	var data ResourceSofamacOSRoot
 	if err := json.NewDecoder(resp.Body).Decode(&data); err != nil {
 		return nil, fmt.Errorf("failed to decode response: %w", err)
 	}

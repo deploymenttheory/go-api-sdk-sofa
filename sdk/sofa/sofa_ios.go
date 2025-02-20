@@ -1,9 +1,9 @@
-// ios_updates_client.go
+// sofa_ios.go
 // SOFA | A MacAdmin's Simple Organized Feed for Apple Software Updates
 // API reference: https://sofafeed.macadmins.io/v1/ios_data_feed.json
 // This client retrieves iOS update data in JSON format.
 
-package sofaios
+package sofa
 
 import (
 	"encoding/json"
@@ -15,21 +15,21 @@ import (
 // API Endpoint
 const uriAPIiOSUpdates = "https://sofafeed.macadmins.io/v1/ios_data_feed.json"
 
-// Root represents the top-level structure of the iOS update feed response
-type Root struct {
-	UpdateHash string      `json:"UpdateHash"`
-	OSVersions []OSVersion `json:"OSVersions"`
+// ResourceSofaiOSRoot  represents the top-level structure of the iOS update feed response
+type ResourceSofaiOSRoot struct {
+	UpdateHash string       `json:"UpdateHash"`
+	OSVersions []iOSVersion `json:"OSVersions"`
 }
 
-// OSVersion represents an iOS version entry
-type OSVersion struct {
-	OSVersion        string           `json:"OSVersion"`
-	Latest           ReleaseInfo      `json:"Latest"`
-	SecurityReleases []SecurityUpdate `json:"SecurityReleases"`
+// iOSVersion represents an iOS version entry
+type iOSVersion struct {
+	OSVersion        string              `json:"OSVersion"`
+	Latest           iOSReleaseInfo      `json:"Latest"`
+	SecurityReleases []iOSSecurityUpdate `json:"SecurityReleases"`
 }
 
-// ReleaseInfo represents the latest release details
-type ReleaseInfo struct {
+// iOSReleaseInfo represents the latest release details
+type iOSReleaseInfo struct {
 	ProductVersion        string          `json:"ProductVersion"`
 	Build                 string          `json:"Build"`
 	ReleaseDate           string          `json:"ReleaseDate"`
@@ -41,8 +41,8 @@ type ReleaseInfo struct {
 	CVEs                  map[string]bool `json:"CVEs"`
 }
 
-// SecurityUpdate represents security updates for an iOS version
-type SecurityUpdate struct {
+// iOSSecurityUpdate represents security updates for an iOS version
+type iOSSecurityUpdate struct {
 	UpdateName               string          `json:"UpdateName"`
 	ProductName              string          `json:"ProductName"`
 	ProductVersion           string          `json:"ProductVersion"`
@@ -57,7 +57,7 @@ type SecurityUpdate struct {
 }
 
 // GetiOSUpdates fetches iOS update data from the API
-func GetiOSUpdates() (*Root, error) {
+func GetiOSUpdates() (*ResourceSofaiOSRoot, error) {
 	client := &http.Client{Timeout: 10 * time.Second}
 	resp, err := client.Get(uriAPIiOSUpdates)
 	if err != nil {
@@ -69,7 +69,7 @@ func GetiOSUpdates() (*Root, error) {
 		return nil, fmt.Errorf("unexpected response code: %d", resp.StatusCode)
 	}
 
-	var data Root
+	var data ResourceSofaiOSRoot
 	if err := json.NewDecoder(resp.Body).Decode(&data); err != nil {
 		return nil, fmt.Errorf("failed to decode response: %w", err)
 	}

@@ -1,4 +1,4 @@
-// main_ios.go
+// GetiOSUpdates.go
 // Fetches and displays full iOS update data using the SOFA feed.
 
 package main
@@ -8,13 +8,13 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/deploymenttheory/go-api-sdk-sofa/sdk/sofaios"
+	"github.com/deploymenttheory/go-api-sdk-sofa/sdk/sofa"
 )
 
 func main() {
 	fmt.Println("Fetching iOS updates...")
 
-	data, err := sofaios.GetiOSUpdates()
+	data, err := sofa.GetiOSUpdates()
 	if err != nil {
 		log.Fatalf("Error fetching iOS updates: %v", err)
 	}

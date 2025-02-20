@@ -1,6 +1,4 @@
-// main_ios.go
-// Fetches iOS update data using the SOFA feed and exports to JSON file.
-
+// examples/ExportiOSUpdatesToJson/ExportiOSUpdatesToJson.go
 package main
 
 import (
@@ -10,13 +8,13 @@ import (
 	"os"
 	"time"
 
-	"github.com/deploymenttheory/go-api-sdk-sofa/sdk/sofaios"
+	"github.com/deploymenttheory/go-api-sdk-sofa/sdk/sofa"
 )
 
 func main() {
 	fmt.Println("Fetching iOS updates...")
 
-	data, err := sofaios.GetiOSUpdates()
+	data, err := sofa.GetiOSUpdates()
 	if err != nil {
 		log.Fatalf("Error fetching iOS updates: %v", err)
 	}

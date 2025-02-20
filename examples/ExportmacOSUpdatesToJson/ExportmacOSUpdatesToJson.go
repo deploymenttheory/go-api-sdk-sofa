@@ -10,13 +10,13 @@ import (
 	"os"
 	"time"
 
-	"github.com/deploymenttheory/go-api-sdk-sofa/sdk/sofamacos"
+	"github.com/deploymenttheory/go-api-sdk-sofa/sdk/sofa"
 )
 
 func main() {
 	fmt.Println("Fetching iOS updates...")
 
-	data, err := sofamacos.GetMacOSUpdates()
+	data, err := sofa.GetMacOSUpdates()
 	if err != nil {
 		log.Fatalf("Error fetching iOS updates: %v", err)
 	}
