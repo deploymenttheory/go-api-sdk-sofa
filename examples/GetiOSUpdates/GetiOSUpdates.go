@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"log"
 
-	sofaios "github.com/deploymenttheory/go-api-sdk-sofa/sdk/ios"
+	"github.com/deploymenttheory/go-api-sdk-sofa/sdk/sofaios"
 )
 
 func main() {
