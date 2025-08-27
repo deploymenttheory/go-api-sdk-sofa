@@ -9,8 +9,6 @@ A Go SDK for interacting with the SOFA (Simple Organized Feed for Apple) API, pr
 
 SOFA (Simple Organized Feed for Apple) supports MacAdmins by efficiently tracking and surfacing information on updates for macOS and iOS. It consists of a machine-readable feed and user-friendly web interface, providing continuously up-to-date information on XProtect data, OS updates, and the details bundled in those releases.
 
-Updated automatically via GitHub Actions, the SOFA feed is a dynamic, centralized, and accessible source of truth. It can be self-hosted, giving you complete assurances as to the provenance of the data your fleet and coworkers can consume. The goal is to streamline the monitoring of Apple's software releases, thereby boosting security awareness and administrative efficiency.
-
 ## About This SDK
 
 This Go SDK provides a simple, idiomatic way to access the SOFA API feeds for macOS and iOS updates. It handles the HTTP requests, JSON parsing, and provides strongly-typed structures for working with the data.
@@ -100,8 +98,6 @@ func main() {
 ### Machine-Readable Feed, RSS Feed, and Web UI
 
 - **JSON Feed**: Provides detailed, machine-readable data optimized for automated tools and scripts
-- **RSS Feed**: Provides RSS Feed for use with entries sorted by date released
-- **Web Interface**: Divided between major version tabs and organized into sections covering the latest OS information, XProtect updates, and security details
 
 ### Use Cases
 
@@ -110,7 +106,6 @@ func main() {
 - **Track Countdowns**: Know both timestamp and days since a release was posted
 - **Documentation Access**: Quick links to relevant Apple documentation and CVE information
 - **Download Universal Mac Assistant**: Access the latest and all 'active' (currently signed) IPSW/Universal Mac Assistant (UMA) download links
-- **Self-Hosting**: Take control of the SOFA feed by self-hosting
 
 ## Available Data
 
