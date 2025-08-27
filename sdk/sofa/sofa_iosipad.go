@@ -10,6 +10,8 @@ import (
 	"fmt"
 	"net/http"
 	"time"
+
+	"github.com/deploymenttheory/go-api-sdk-sofa/sdk/models"
 )
 
 // API Endpoint
@@ -57,7 +59,7 @@ type iOSSecurityUpdate struct {
 }
 
 // GetiOSUpdates fetches iOS update data from the API
-func GetiOSUpdates() (*ResourceSofaiOSRoot, error) {
+func GetiOSUpdates() (*models.IOSFeedResponse, error) {
 	client := &http.Client{Timeout: 10 * time.Second}
 	resp, err := client.Get(uriAPIiOSUpdates)
 	if err != nil {
@@ -69,7 +71,7 @@ func GetiOSUpdates() (*ResourceSofaiOSRoot, error) {
 		return nil, fmt.Errorf("unexpected response code: %d", resp.StatusCode)
 	}
 
-	var data ResourceSofaiOSRoot
+	var data models.IOSFeedResponse
 	if err := json.NewDecoder(resp.Body).Decode(&data); err != nil {
 		return nil, fmt.Errorf("failed to decode response: %w", err)
 	}

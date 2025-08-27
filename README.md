@@ -1,75 +1,162 @@
-# Template
+# Go API SDK for SOFA
 
-This repository serves as a **Default Template Repository** according official [GitHub Contributing Guidelines][ProjectSetup] for healthy contributions. It brings you clean default Templates for several areas:
+A Go SDK for interacting with the SOFA (Simple Organized Feed for Apple) API, providing access to macOS and iOS update information.
 
-- [Azure DevOps Pull Requests](.azuredevops/PULL_REQUEST_TEMPLATE.md) ([`.azuredevops\PULL_REQUEST_TEMPLATE.md`](`.azuredevops\PULL_REQUEST_TEMPLATE.md`))
-- [Azure Pipelines](.pipelines/pipeline.yml) ([`.pipelines/pipeline.yml`](`.pipelines/pipeline.yml`))
-- [GitHub Workflows](.github/workflows/)
-  - [Super Linter](.github/workflows/linter.yml) ([`.github/workflows/linter.yml`](`.github/workflows/linter.yml`))
-  - [Sample Workflows](.github/workflows/workflow.yml) ([`.github/workflows/workflow.yml`](`.github/workflows/workflow.yml`))
-- [GitHub Pull Requests](.github/PULL_REQUEST_TEMPLATE.md) ([`.github/PULL_REQUEST_TEMPLATE.md`](`.github/PULL_REQUEST_TEMPLATE.md`))
-- [GitHub Issues](.github/ISSUE_TEMPLATE/)
-  - [Feature Requests](.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md) ([`.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md`](`.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md`))
-  - [Bug Reports](.github/ISSUE_TEMPLATE/BUG_REPORT.md) ([`.github/ISSUE_TEMPLATE/BUG_REPORT.md`](`.github/ISSUE_TEMPLATE/BUG_REPORT.md`))
-- [Codeowners](.github/CODEOWNERS) ([`.github/CODEOWNERS`](`.github/CODEOWNERS`)) _adjust usernames once cloned_
-- [Wiki and Documentation](docs/) ([`docs/`](`docs/`))
-- [gitignore](.gitignore) ([`.gitignore`](.gitignore))
-- [gitattributes](.gitattributes) ([`.gitattributes`](.gitattributes))
-- [Changelog](CHANGELOG.md) ([`CHANGELOG.md`](`CHANGELOG.md`))
-- [Code of Conduct](CODE_OF_CONDUCT.md) ([`CODE_OF_CONDUCT.md`](`CODE_OF_CONDUCT.md`))
-- [Contribution](CONTRIBUTING.md) ([`CONTRIBUTING.md`](`CONTRIBUTING.md`))
-- [License](LICENSE) ([`LICENSE`](`LICENSE`)) _adjust projectname once cloned_
-- [Readme](README.md) ([`README.md`](`README.md`))
-- [Security](SECURITY.md) ([`SECURITY.md`](`SECURITY.md`))
+[![Go Version](https://img.shields.io/github/go-mod/go-version/deploymenttheory/go-api-sdk-sofa)](https://go.dev/)
+[![License](https://img.shields.io/github/license/deploymenttheory/go-api-sdk-sofa)](LICENSE)
 
+## About SOFA
 
-## Status
+SOFA (Simple Organized Feed for Apple) supports MacAdmins by efficiently tracking and surfacing information on updates for macOS and iOS. It consists of a machine-readable feed and user-friendly web interface, providing continuously up-to-date information on XProtect data, OS updates, and the details bundled in those releases.
 
-[![Super Linter](<https://github.com/segraef/Template/actions/workflows/linter.yml/badge.svg>)](<https://github.com/segraef/Template/actions/workflows/linter.yml>)
+Updated automatically via GitHub Actions, the SOFA feed is a dynamic, centralized, and accessible source of truth. It can be self-hosted, giving you complete assurances as to the provenance of the data your fleet and coworkers can consume. The goal is to streamline the monitoring of Apple's software releases, thereby boosting security awareness and administrative efficiency.
 
-[![Sample Workflow](<https://github.com/segraef/Template/actions/workflows/workflow.yml/badge.svg>)](<https://github.com/segraef/Template/actions/workflows/workflow.yml>)
+## About This SDK
 
-## Creating a repository from a template
+This Go SDK provides a simple, idiomatic way to access the SOFA API feeds for macOS and iOS updates. It handles the HTTP requests, JSON parsing, and provides strongly-typed structures for working with the data.
 
-You can [generate](https://github.com/segraef/Template/generate) a new repository with the same directory structure and files as an existing repository. More details can be found [here][CreateFromTemplate].
+## Installation
 
-## Reporting Issues and Feedback
+```bash
+go get github.com/deploymenttheory/go-api-sdk-sofa
+```
 
-### Issues and Bugs
+## Usage
 
-If you find any bugs, please file an issue in the [GitHub Issues][GitHubIssues] page. Please fill out the provided template with the appropriate information.
+### Fetching macOS Updates
 
-If you are taking the time to mention a problem, even a seemingly minor one, it is greatly appreciated, and a totally valid contribution to this project. **Thank you!**
+```go
+package main
 
-## Feedback
+import (
+	"encoding/json"
+	"fmt"
+	"log"
 
-If there is a feature you would like to see in here, please file an issue or feature request in the [GitHub Issues][GitHubIssues] page to provide direct feedback.
+	"github.com/deploymenttheory/go-api-sdk-sofa/sdk/sofa"
+)
 
-## Contribution
+func main() {
+	fmt.Println("Fetching macOS updates...")
 
-If you would like to become an active contributor to this repository or project, please follow the instructions provided in [`CONTRIBUTING.md`][Contributing].
+	data, err := sofa.GetMacOSUpdates()
+	if err != nil {
+		log.Fatalf("Error fetching macOS updates: %v", err)
+	}
 
-## Learn More
+	// Access structured data
+	fmt.Printf("Latest macOS: %s (Build %s)\n", 
+		data.OSVersions[0].Latest.ProductVersion, 
+		data.OSVersions[0].Latest.Build)
 
-* [GitHub Documentation][GitHubDocs]
-* [Azure DevOps Documentation][AzureDevOpsDocs]
-* [Microsoft Azure Documentation][MicrosoftAzureDocs]
+	// Or convert to JSON for display/storage
+	jsonOutput, err := json.MarshalIndent(data, "", "  ")
+	if err != nil {
+		log.Fatalf("Error marshalling JSON output: %v", err)
+	}
 
-<!-- References -->
+	fmt.Println(string(jsonOutput))
+}
+```
 
-<!-- Local -->
-[ProjectSetup]: <https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions>
-[CreateFromTemplate]: <https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-repository-from-a-template>
-[GitHubDocs]: <https://docs.github.com/>
-[AzureDevOpsDocs]: <https://docs.microsoft.com/en-us/azure/devops/?view=azure-devops>
-[GitHubIssues]: <https://github.com/segraef/Template/issues>
-[Contributing]: CONTRIBUTING.md
+### Fetching iOS Updates
 
-<!-- External -->
-[Az]: <https://img.shields.io/powershellgallery/v/Az.svg?style=flat-square&label=Az>
-[AzGallery]: <https://www.powershellgallery.com/packages/Az/>
-[PowerShellCore]: <https://github.com/PowerShell/PowerShell/releases/latest>
+```go
+package main
 
-<!-- Docs -->
-[MicrosoftAzureDocs]: <https://docs.microsoft.com/en-us/azure/>
-[PowerShellDocs]: <https://docs.microsoft.com/en-us/powershell/>
+import (
+	"encoding/json"
+	"fmt"
+	"log"
+
+	"github.com/deploymenttheory/go-api-sdk-sofa/sdk/sofa"
+)
+
+func main() {
+	fmt.Println("Fetching iOS updates...")
+
+	data, err := sofa.GetiOSUpdates()
+	if err != nil {
+		log.Fatalf("Error fetching iOS updates: %v", err)
+	}
+
+	// Access structured data
+	fmt.Printf("Latest iOS: %s (Build %s)\n", 
+		data.OSVersions[0].Latest.ProductVersion, 
+		data.OSVersions[0].Latest.Build)
+
+	// Or convert to JSON for display/storage
+	jsonOutput, err := json.MarshalIndent(data, "", "  ")
+	if err != nil {
+		log.Fatalf("Error marshalling JSON output: %v", err)
+	}
+
+	fmt.Println(string(jsonOutput))
+}
+```
+
+## Key Features of SOFA
+
+### Machine-Readable Feed, RSS Feed, and Web UI
+
+- **JSON Feed**: Provides detailed, machine-readable data optimized for automated tools and scripts
+- **RSS Feed**: Provides RSS Feed for use with entries sorted by date released
+- **Web Interface**: Divided between major version tabs and organized into sections covering the latest OS information, XProtect updates, and security details
+
+### Use Cases
+
+- **XProtect Monitoring**: Keep track of the latest XProtect updates centrally to verify compliance with CIS/mSCP standards
+- **Security Overviews**: Surface information on vulnerabilities (CVEs) and their exploitation status (KEV)
+- **Track Countdowns**: Know both timestamp and days since a release was posted
+- **Documentation Access**: Quick links to relevant Apple documentation and CVE information
+- **Download Universal Mac Assistant**: Access the latest and all 'active' (currently signed) IPSW/Universal Mac Assistant (UMA) download links
+- **Self-Hosting**: Take control of the SOFA feed by self-hosting
+
+## Available Data
+
+### macOS Data
+
+- OS versions and builds
+- Security releases and updates
+- XProtect payload information
+- Supported device models
+- CVE information including actively exploited vulnerabilities
+- Installation app details (Universal Mac Assistant, IPSW)
+
+### iOS Data
+
+- OS versions and builds
+- Security releases and updates
+- Supported device information
+- CVE details including actively exploited vulnerabilities
+
+## Important Notes
+
+SOFA has issued a deprecation notice for their feed URLs. Please ensure you're using the current endpoints:
+
+- macOS feed: `https://sofafeed.macadmins.io/v1/macos_data_feed.json`
+- iOS feed: `https://sofafeed.macadmins.io/v1/ios_data_feed.json`
+
+The SDK already uses these updated endpoints.
+
+## Examples
+
+See the [examples](./examples) directory for complete working examples:
+
+- [GetMacOSUpdates](./examples/GetMacOSUpdates/GetMacOSUpdates.go)
+- [GetiOSUpdates](./examples/GetiOSUpdates/GetiOSUpdates.go)
+- [ExportmacOSUpdatesToJson](./examples/ExportmacOSUpdatesToJson/ExportmacOSUpdatesToJson.go)
+- [ExportiOSUpdatesToJson](./examples/ExportiOSUpdatesToJson/ExportiOSUpdatesToJson.go)
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Links
+
+- [SOFA Web UI](https://sofa.macadmins.io/)
+- [SOFA GitHub Repository](https://github.com/macadmins/sofa)

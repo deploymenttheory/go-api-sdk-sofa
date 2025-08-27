@@ -10,6 +10,8 @@ import (
 	"fmt"
 	"net/http"
 	"time"
+
+	"github.com/deploymenttheory/go-api-sdk-sofa/sdk/models"
 )
 
 // API Endpoint
@@ -114,7 +116,7 @@ type MacIPSW struct {
 }
 
 // GetMacOSUpdates fetches macOS update data from the API
-func GetMacOSUpdates() (*ResourceSofamacOSRoot, error) {
+func GetMacOSUpdates() (*models.MacOSFeedResponse, error) {
 	client := &http.Client{Timeout: 10 * time.Second}
 	resp, err := client.Get(uriAPIMacOSUpdates)
 	if err != nil {
@@ -126,7 +128,7 @@ func GetMacOSUpdates() (*ResourceSofamacOSRoot, error) {
 		return nil, fmt.Errorf("unexpected response code: %d", resp.StatusCode)
 	}
 
-	var data ResourceSofamacOSRoot
+	var data models.MacOSFeedResponse
 	if err := json.NewDecoder(resp.Body).Decode(&data); err != nil {
 		return nil, fmt.Errorf("failed to decode response: %w", err)
 	}
