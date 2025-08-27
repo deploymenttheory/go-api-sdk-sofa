@@ -1,9 +1,7 @@
-// sofa_ios.go
+// sofa_iosipad.go
 // SOFA | A MacAdmin's Simple Organized Feed for Apple Software Updates
 // API reference: https://sofafeed.macadmins.io/v1/ios_data_feed.json
 // This client retrieves iOS update data in JSON format.
-
-//go:build !ios
 
 package sofa
 

@@ -23,6 +23,7 @@ type ResourceSofamacOSRoot struct {
 	XProtectPlistConfig macOSXProtectPlistConfigData `json:"XProtectPlistConfigData"`
 	Models              map[string]macOSModel        `json:"Models"`
 	InstallationApps    InstallationApps             `json:"InstallationApps"`
+	SupportedModels     []macOSSupportedModel        `json:"SupportedModels"`
 }
 
 // macOSVersion  represents an operating system version
