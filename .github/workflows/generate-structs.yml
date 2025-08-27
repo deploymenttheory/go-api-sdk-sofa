@@ -28,12 +28,12 @@ jobs:
     - name: Fetch macOS data feed and generate structs
       run: |
         curl -s "https://sofafeed.macadmins.io/v1/macos_data_feed.json" | \
-        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/macos_generated.go
+        gojsonstruct --package-name models --typename MacOSFeedResponse --output-type separate > sdk/models/macos_generated.go
         
     - name: Fetch iOS data feed and generate structs
       run: |
         curl -s "https://sofafeed.macadmins.io/v1/ios_data_feed.json" | \
-        gojsonstruct -packagename models -typename IOSFeedResponse > sdk/models/ios_generated.go
+        gojsonstruct --package-name models --typename IOSFeedResponse --output-type separate > sdk/models/ios_generated.go
         
     - name: Format generated code
       run: |
