@@ -28,17 +28,17 @@ jobs:
     - name: Fetch macOS SOFA v1 data feed and generate structs
       run: |
         curl -s "https://sofafeed.macadmins.io/v1/macos_data_feed.json" | \
-        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/macos_v1_generated.go
+        gojsonstruct -packagename models -typename MacOSV1FeedResponse > sdk/models/macos_v1_generated.go
         
     - name: Fetch iOS SOFA v1 data feed and generate structs
       run: |
         curl -s "https://sofafeed.macadmins.io/v1/ios_data_feed.json" | \
-        gojsonstruct -packagename models -typename IOSFeedResponse > sdk/models/ios_v1_generated.go
+        gojsonstruct -packagename models -typename IOSV1FeedResponse > sdk/models/ios_v1_generated.go
 
     - name: Fetch macOS SOFA v2data feed and generate structs
       run: |
         curl -s "https://sofa.macadmins.io/v2/macos_data_feed.json" | \
-        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/macos_v2_generated.go
+        gojsonstruct -packagename models -typename MacOSV2FeedResponse > sdk/models/macos_v2_generated.go
 
     - name: Fetch iOS SOFA v2 data feed and generate structs
       run: |
@@ -48,22 +48,22 @@ jobs:
     - name: Fetch tvOS SOFA v2 data feed and generate structs
       run: |
         curl -s "https://sofa.macadmins.io/v2/tvos_data_feed.json" | \
-        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/tvos_v2_generated.go
+        gojsonstruct -packagename models -typename TVOSV2FeedResponse > sdk/models/tvos_v2_generated.go
 
     - name: Fetch watchOS SOFA v2 data feed and generate structs
       run: |
         curl -s "https://sofa.macadmins.io/v2/watchos_data_feed.json" | \
-        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/watchos_v2_generated.go
+        gojsonstruct -packagename models -typename WatchOSV2FeedResponse > sdk/models/watchos_v2_generated.go
     
     - name: Fetch visionOS SOFA v2 data feed and generate structs
       run: |
         curl -s "https://sofa.macadmins.io/v2/visionos_data_feed.json" | \
-        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/visionos_v2_generated.go
+        gojsonstruct -packagename models -typename VisionOSV2FeedResponse > sdk/models/visionos_v2_generated.go
     
     - name: Fetch Safari SOFA v2 data feed and generate structs
       run: |
         curl -s "https://sofa.macadmins.io/v2/safari_data_feed.json" | \
-        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/safari_v2_generated.go
+        gojsonstruct -packagename models -typename SafariV2FeedResponse > sdk/models/safari_v2_generated.go
 
 
     - name: go fmt generated structs
