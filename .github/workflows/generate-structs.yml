@@ -17,7 +17,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6.0.0
       with:
-        go-version: '1.22'
+        go-version: 'go.mod'
         
     - name: Install gojsonstruct
       run: go install github.com/twpayne/go-jsonstruct/cmd/gojsonstruct@latest
@@ -25,20 +25,49 @@ jobs:
     - name: Create models directory
       run: mkdir -p sdk/models
       
-    - name: Fetch macOS data feed and generate structs
+    - name: Fetch macOS SOFA v1 data feed and generate structs
       run: |
         curl -s "https://sofafeed.macadmins.io/v1/macos_data_feed.json" | \
-        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/macos_generated.go
+        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/macos_v1_generated.go
         
-    - name: Fetch iOS data feed and generate structs
+    - name: Fetch iOS SOFA v1 data feed and generate structs
       run: |
         curl -s "https://sofafeed.macadmins.io/v1/ios_data_feed.json" | \
-        gojsonstruct -packagename models -typename IOSFeedResponse > sdk/models/ios_generated.go
-        
-    - name: Format generated code
+        gojsonstruct -packagename models -typename IOSFeedResponse > sdk/models/ios_v1_generated.go
+
+    - name: Fetch macOS SOFA v2data feed and generate structs
       run: |
-        go fmt sdk/models/macos_generated.go
-        go fmt sdk/models/ios_generated.go
+        curl -s "https://sofa.macadmins.io/v2/macos_data_feed.json" | \
+        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/macos_v2_generated.go
+
+    - name: Fetch iOS SOFA v2 data feed and generate structs
+      run: |
+        curl -s "https://sofa.macadmins.io/v2/ios_data_feed.json" | \
+        gojsonstruct -packagename models -typename IOSFeedResponse > sdk/models/ios_v2_generated.go
+    
+    - name: Fetch tvOS SOFA v2 data feed and generate structs
+      run: |
+        curl -s "https://sofa.macadmins.io/v2/tvos_data_feed.json" | \
+        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/tvos_v2_generated.go
+
+    - name: Fetch watchOS SOFA v2 data feed and generate structs
+      run: |
+        curl -s "https://sofa.macadmins.io/v2/watchos_data_feed.json" | \
+        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/watchos_v2_generated.go
+    
+    - name: Fetch visionOS SOFA v2 data feed and generate structs
+      run: |
+        curl -s "https://sofa.macadmins.io/v2/visionos_data_feed.json" | \
+        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/visionos_v2_generated.go
+    
+    - name: Fetch Safari SOFA v2 data feed and generate structs
+      run: |
+        curl -s "https://sofa.macadmins.io/v2/safari_data_feed.json" | \
+        gojsonstruct -packagename models -typename MacOSFeedResponse > sdk/models/safari_v2_generated.go
+
+
+    - name: go fmt generated structs
+      run: go fmt sdk/models/*_generated.go
         
     - name: Create PR if changes detected
       uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
@@ -48,8 +77,16 @@ jobs:
         title: 'Auto-generated: Update SOFA API struct definitions'
         body: |
           This PR contains auto-generated Go struct definitions from the SOFA API feeds:
+          -- v1 feeds --
           - macOS feed: https://sofafeed.macadmins.io/v1/macos_data_feed.json
           - iOS feed: https://sofafeed.macadmins.io/v1/ios_data_feed.json
+          -- v2 feeds --
+          - macOS feed: https://sofa.macadmins.io/v2/macos_data_feed.json
+          - iOS feed: https://sofa.macadmins.io/v2/ios_data_feed.json
+          - tvOS feed: https://sofa.macadmins.io/v2/tvos_data_feed.json
+          - watchOS feed: https://sofa.macadmins.io/v2/watchos_data_feed.json
+          - visionOS feed: https://sofa.macadmins.io/v2/visionos_data_feed.json
+          - Safari feed: https://sofa.macadmins.io/v2/safari_data_feed.json
           
           Generated using gojsonstruct tool.
         branch: auto/update-structs
