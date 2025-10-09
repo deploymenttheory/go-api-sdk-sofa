@@ -69,25 +69,35 @@ jobs:
     - name: go fmt generated structs
       run: go fmt sdk/models/*_generated.go
         
+    - name: Get current date and time
+      id: datetime
+      run: echo "timestamp=$(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_OUTPUT
+        
     - name: Create PR if changes detected
       uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: 'Generate updated Go structs from SOFA API feeds'
-        title: 'Auto-generated: Update SOFA API struct definitions'
+        title: 'Auto-generated: Update SOFA API struct definitions - ${{ steps.datetime.outputs.timestamp }}'
         body: |
-          This PR contains auto-generated Go struct definitions from the SOFA API feeds:
-          -- v1 feeds --
-          - macOS feed: https://sofafeed.macadmins.io/v1/macos_data_feed.json
-          - iOS feed: https://sofafeed.macadmins.io/v1/ios_data_feed.json
-          -- v2 feeds --
-          - macOS feed: https://sofa.macadmins.io/v2/macos_data_feed.json
-          - iOS feed: https://sofa.macadmins.io/v2/ios_data_feed.json
-          - tvOS feed: https://sofa.macadmins.io/v2/tvos_data_feed.json
-          - watchOS feed: https://sofa.macadmins.io/v2/watchos_data_feed.json
-          - visionOS feed: https://sofa.macadmins.io/v2/visionos_data_feed.json
-          - Safari feed: https://sofa.macadmins.io/v2/safari_data_feed.json
+          This PR contains auto-generated Go struct definitions from the SOFA API feeds.
           
-          Generated using gojsonstruct tool.
+          **Generated:** ${{ steps.datetime.outputs.timestamp }}
+          
+          ## Feeds Updated
+          
+          ### v1 Feeds
+          - macOS: https://sofafeed.macadmins.io/v1/macos_data_feed.json
+          - iOS: https://sofafeed.macadmins.io/v1/ios_data_feed.json
+          
+          ### v2 Feeds
+          - macOS: https://sofa.macadmins.io/v2/macos_data_feed.json
+          - iOS: https://sofa.macadmins.io/v2/ios_data_feed.json
+          - tvOS: https://sofa.macadmins.io/v2/tvos_data_feed.json
+          - watchOS: https://sofa.macadmins.io/v2/watchos_data_feed.json
+          - visionOS: https://sofa.macadmins.io/v2/visionos_data_feed.json
+          - Safari: https://sofa.macadmins.io/v2/safari_data_feed.json
+          
+          Generated using [gojsonstruct](https://github.com/twpayne/go-jsonstruct).
         branch: auto/update-structs
         delete-branch: true
