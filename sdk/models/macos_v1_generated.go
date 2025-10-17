@@ -2164,6 +2164,7 @@ type MacOSV1FeedResponse struct {
 				Cve202543276 bool `json:"CVE-2025-43276"`
 				Cve202543277 bool `json:"CVE-2025-43277"`
 				Cve202543279 bool `json:"CVE-2025-43279"`
+				Cve202543281 bool `json:"CVE-2025-43281"`
 				Cve202543282 bool `json:"CVE-2025-43282"`
 				Cve202543283 bool `json:"CVE-2025-43283"`
 				Cve202543284 bool `json:"CVE-2025-43284"`
