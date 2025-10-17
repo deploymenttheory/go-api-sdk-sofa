@@ -2303,6 +2303,7 @@ type MacOSV2FeedResponse struct {
 				Cve202543276 *struct{} `json:"CVE-2025-43276,omitempty"`
 				Cve202543277 *struct{} `json:"CVE-2025-43277,omitempty"`
 				Cve202543279 *struct{} `json:"CVE-2025-43279,omitempty"`
+				Cve202543281 *struct{} `json:"CVE-2025-43281,omitempty"`
 				Cve202543282 *struct{} `json:"CVE-2025-43282,omitempty"`
 				Cve202543283 *struct{} `json:"CVE-2025-43283,omitempty"`
 				Cve202543284 *struct{} `json:"CVE-2025-43284,omitempty"`
