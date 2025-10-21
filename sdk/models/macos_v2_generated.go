@@ -759,7 +759,12 @@ type MacOSV2FeedResponse struct {
 				Cve202246725 *struct{} `json:"CVE-2022-46725,omitempty"`
 				Cve202247915 *struct{} `json:"CVE-2022-47915,omitempty"`
 				Cve202247965 *struct{} `json:"CVE-2022-47965,omitempty"`
-				Cve202248503 *struct{} `json:"CVE-2022-48503,omitempty"`
+				Cve202248503 *struct {
+					ActivelyExploited bool   `json:"actively_exploited"`
+					InKev             bool   `json:"in_kev"`
+					NistURL           string `json:"nist_url"`
+					Severity          string `json:"severity"`
+				} `json:"CVE-2022-48503,omitempty"`
 				Cve202248504 *struct{} `json:"CVE-2022-48504,omitempty"`
 				Cve202248505 *struct{} `json:"CVE-2022-48505,omitempty"`
 				Cve202248554 *struct{} `json:"CVE-2022-48554,omitempty"`
