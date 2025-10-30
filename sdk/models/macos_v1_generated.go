@@ -70,6 +70,7 @@ type MacOSV1FeedResponse struct {
 		// "Mac16,7" cannot be unmarshalled into a struct field by encoding/json.
 		// "Mac16,8" cannot be unmarshalled into a struct field by encoding/json.
 		// "Mac16,9" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac17,2" cannot be unmarshalled into a struct field by encoding/json.
 		// "MacBook10,1" cannot be unmarshalled into a struct field by encoding/json.
 		// "MacBook9,1" cannot be unmarshalled into a struct field by encoding/json.
 		// "MacBookAir10,1" cannot be unmarshalled into a struct field by encoding/json.
@@ -2285,6 +2286,7 @@ type MacOSV1FeedResponse struct {
 				// "Mac16,7" cannot be unmarshalled into a struct field by encoding/json.
 				// "Mac16,8" cannot be unmarshalled into a struct field by encoding/json.
 				// "Mac16,9" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac17,2" cannot be unmarshalled into a struct field by encoding/json.
 				// "MacBook10,1" cannot be unmarshalled into a struct field by encoding/json.
 				// "MacBook9,1" cannot be unmarshalled into a struct field by encoding/json.
 				// "MacBookAir10,1" cannot be unmarshalled into a struct field by encoding/json.
