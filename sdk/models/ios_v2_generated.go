@@ -20,6 +20,8 @@ type IOSFeedResponse struct {
 					Severity          string `json:"severity"`
 				} `json:"CVE-2025-43300,omitempty"`
 				Cve202543350 *struct{} `json:"CVE-2025-43350,omitempty"`
+				Cve202543365 *struct{} `json:"CVE-2025-43365,omitempty"`
+				Cve202543377 *struct{} `json:"CVE-2025-43377,omitempty"`
 				Cve202543379 *struct{} `json:"CVE-2025-43379,omitempty"`
 				Cve202543383 *struct{} `json:"CVE-2025-43383,omitempty"`
 				Cve202543384 *struct{} `json:"CVE-2025-43384,omitempty"`
@@ -29,9 +31,10 @@ type IOSFeedResponse struct {
 				Cve202543391 *struct{} `json:"CVE-2025-43391,omitempty"`
 				Cve202543392 *struct{} `json:"CVE-2025-43392,omitempty"`
 				Cve202543398 *struct{} `json:"CVE-2025-43398,omitempty"`
-				Cve202543400 *struct{} `json:"CVE-2025-43400,omitempty"`
+				Cve202543399 *struct{} `json:"CVE-2025-43399,omitempty"`
 				Cve202543407 *struct{} `json:"CVE-2025-43407,omitempty"`
 				Cve202543413 *struct{} `json:"CVE-2025-43413,omitempty"`
+				Cve202543418 *struct{} `json:"CVE-2025-43418,omitempty"`
 				Cve202543421 *struct{} `json:"CVE-2025-43421,omitempty"`
 				Cve202543422 *struct{} `json:"CVE-2025-43422,omitempty"`
 				Cve202543423 *struct{} `json:"CVE-2025-43423,omitempty"`
@@ -71,6 +74,7 @@ type IOSFeedResponse struct {
 				Cve202543495 *struct{} `json:"CVE-2025-43495,omitempty"`
 				Cve202543496 *struct{} `json:"CVE-2025-43496,omitempty"`
 				Cve202543498 *struct{} `json:"CVE-2025-43498,omitempty"`
+				Cve202543499 *struct{} `json:"CVE-2025-43499,omitempty"`
 				Cve202543500 *struct{} `json:"CVE-2025-43500,omitempty"`
 				Cve202543502 *struct{} `json:"CVE-2025-43502,omitempty"`
 				Cve202543503 *struct{} `json:"CVE-2025-43503,omitempty"`
@@ -866,6 +870,7 @@ type IOSFeedResponse struct {
 				Cve202543368 *struct{} `json:"CVE-2025-43368,omitempty"`
 				Cve202543372 *struct{} `json:"CVE-2025-43372,omitempty"`
 				Cve202543376 *struct{} `json:"CVE-2025-43376,omitempty"`
+				Cve202543377 *struct{} `json:"CVE-2025-43377,omitempty"`
 				Cve202543379 *struct{} `json:"CVE-2025-43379,omitempty"`
 				Cve202543383 *struct{} `json:"CVE-2025-43383,omitempty"`
 				Cve202543384 *struct{} `json:"CVE-2025-43384,omitempty"`
@@ -875,9 +880,11 @@ type IOSFeedResponse struct {
 				Cve202543391 *struct{} `json:"CVE-2025-43391,omitempty"`
 				Cve202543392 *struct{} `json:"CVE-2025-43392,omitempty"`
 				Cve202543398 *struct{} `json:"CVE-2025-43398,omitempty"`
+				Cve202543399 *struct{} `json:"CVE-2025-43399,omitempty"`
 				Cve202543400 *struct{} `json:"CVE-2025-43400,omitempty"`
 				Cve202543407 *struct{} `json:"CVE-2025-43407,omitempty"`
 				Cve202543413 *struct{} `json:"CVE-2025-43413,omitempty"`
+				Cve202543418 *struct{} `json:"CVE-2025-43418,omitempty"`
 				Cve202543419 *struct{} `json:"CVE-2025-43419,omitempty"`
 				Cve202543421 *struct{} `json:"CVE-2025-43421,omitempty"`
 				Cve202543422 *struct{} `json:"CVE-2025-43422,omitempty"`
@@ -918,6 +925,7 @@ type IOSFeedResponse struct {
 				Cve202543495 *struct{} `json:"CVE-2025-43495,omitempty"`
 				Cve202543496 *struct{} `json:"CVE-2025-43496,omitempty"`
 				Cve202543498 *struct{} `json:"CVE-2025-43498,omitempty"`
+				Cve202543499 *struct{} `json:"CVE-2025-43499,omitempty"`
 				Cve202543500 *struct{} `json:"CVE-2025-43500,omitempty"`
 				Cve202543502 *struct{} `json:"CVE-2025-43502,omitempty"`
 				Cve202543503 *struct{} `json:"CVE-2025-43503,omitempty"`
