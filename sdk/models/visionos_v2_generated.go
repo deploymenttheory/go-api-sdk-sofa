@@ -243,6 +243,7 @@ type VisionOSV2FeedResponse struct {
 					NistURL  string `json:"nist_url"`
 					Severity string `json:"severity"`
 				} `json:"CVE-2025-24201,omitempty"`
+				Cve202524203 *struct{} `json:"CVE-2025-24203,omitempty"`
 				Cve202524206 *struct{} `json:"CVE-2025-24206,omitempty"`
 				Cve202524210 *struct{} `json:"CVE-2025-24210,omitempty"`
 				Cve202524211 *struct{} `json:"CVE-2025-24211,omitempty"`
@@ -352,11 +353,9 @@ type VisionOSV2FeedResponse struct {
 				Cve202543303 *struct{} `json:"CVE-2025-43303,omitempty"`
 				Cve202543316 *struct{} `json:"CVE-2025-43316,omitempty"`
 				Cve202543317 *struct{} `json:"CVE-2025-43317,omitempty"`
-				Cve202543323 *struct{} `json:"CVE-2025-43323,omitempty"`
 				Cve202543342 *struct{} `json:"CVE-2025-43342,omitempty"`
 				Cve202543343 *struct{} `json:"CVE-2025-43343,omitempty"`
 				Cve202543344 *struct{} `json:"CVE-2025-43344,omitempty"`
-				Cve202543345 *struct{} `json:"CVE-2025-43345,omitempty"`
 				Cve202543346 *struct{} `json:"CVE-2025-43346,omitempty"`
 				Cve202543347 *struct{} `json:"CVE-2025-43347,omitempty"`
 				Cve202543349 *struct{} `json:"CVE-2025-43349,omitempty"`
@@ -364,9 +363,7 @@ type VisionOSV2FeedResponse struct {
 				Cve202543355 *struct{} `json:"CVE-2025-43355,omitempty"`
 				Cve202543356 *struct{} `json:"CVE-2025-43356,omitempty"`
 				Cve202543359 *struct{} `json:"CVE-2025-43359,omitempty"`
-				Cve202543361 *struct{} `json:"CVE-2025-43361,omitempty"`
 				Cve202543372 *struct{} `json:"CVE-2025-43372,omitempty"`
-				Cve202543376 *struct{} `json:"CVE-2025-43376,omitempty"`
 				Cve202543379 *struct{} `json:"CVE-2025-43379,omitempty"`
 				Cve202543383 *struct{} `json:"CVE-2025-43383,omitempty"`
 				Cve202543384 *struct{} `json:"CVE-2025-43384,omitempty"`
@@ -378,7 +375,6 @@ type VisionOSV2FeedResponse struct {
 				Cve202543400 *struct{} `json:"CVE-2025-43400,omitempty"`
 				Cve202543407 *struct{} `json:"CVE-2025-43407,omitempty"`
 				Cve202543413 *struct{} `json:"CVE-2025-43413,omitempty"`
-				Cve202543419 *struct{} `json:"CVE-2025-43419,omitempty"`
 				Cve202543421 *struct{} `json:"CVE-2025-43421,omitempty"`
 				Cve202543423 *struct{} `json:"CVE-2025-43423,omitempty"`
 				Cve202543425 *struct{} `json:"CVE-2025-43425,omitempty"`
