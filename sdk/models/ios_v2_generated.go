@@ -767,6 +767,7 @@ type IOSFeedResponse struct {
 				Cve202531213 *struct{} `json:"CVE-2025-31213,omitempty"`
 				Cve202531214 *struct{} `json:"CVE-2025-31214,omitempty"`
 				Cve202531215 *struct{} `json:"CVE-2025-31215,omitempty"`
+				Cve202531216 *struct{} `json:"CVE-2025-31216,omitempty"`
 				Cve202531217 *struct{} `json:"CVE-2025-31217,omitempty"`
 				Cve202531219 *struct{} `json:"CVE-2025-31219,omitempty"`
 				Cve202531220 *struct{} `json:"CVE-2025-31220,omitempty"`
@@ -869,6 +870,7 @@ type IOSFeedResponse struct {
 				Cve202543365 *struct{} `json:"CVE-2025-43365,omitempty"`
 				Cve202543368 *struct{} `json:"CVE-2025-43368,omitempty"`
 				Cve202543372 *struct{} `json:"CVE-2025-43372,omitempty"`
+				Cve202543374 *struct{} `json:"CVE-2025-43374,omitempty"`
 				Cve202543376 *struct{} `json:"CVE-2025-43376,omitempty"`
 				Cve202543377 *struct{} `json:"CVE-2025-43377,omitempty"`
 				Cve202543379 *struct{} `json:"CVE-2025-43379,omitempty"`
