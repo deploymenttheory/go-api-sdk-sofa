@@ -193,7 +193,7 @@ type MacOSV1FeedResponse struct {
 				Cve202543523 bool `json:"CVE-2025-43523"`
 				Cve202543526 bool `json:"CVE-2025-43526"`
 				Cve202543527 bool `json:"CVE-2025-43527"`
-				Cve202543529 bool `json:"CVE-2025-43529"`
+				Cve202543529 bool `json:"CVE-2025-43529,omitempty"`
 				Cve202543530 bool `json:"CVE-2025-43530"`
 				Cve202543531 bool `json:"CVE-2025-43531"`
 				Cve202543532 bool `json:"CVE-2025-43532"`
@@ -2419,7 +2419,7 @@ type MacOSV1FeedResponse struct {
 				Cve202543523 bool `json:"CVE-2025-43523"`
 				Cve202543526 bool `json:"CVE-2025-43526"`
 				Cve202543527 bool `json:"CVE-2025-43527"`
-				Cve202543529 bool `json:"CVE-2025-43529"`
+				Cve202543529 bool `json:"CVE-2025-43529,omitempty"`
 				Cve202543530 bool `json:"CVE-2025-43530"`
 				Cve202543531 bool `json:"CVE-2025-43531"`
 				Cve202543532 bool `json:"CVE-2025-43532"`
