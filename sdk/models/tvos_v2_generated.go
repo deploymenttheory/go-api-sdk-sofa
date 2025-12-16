@@ -41,7 +41,11 @@ type TVOSV2FeedResponse struct {
 				Cve202543265 *struct{} `json:"CVE-2025-43265,omitempty"`
 				Cve202543277 *struct{} `json:"CVE-2025-43277,omitempty"`
 				Cve202543282 *struct{} `json:"CVE-2025-43282,omitempty"`
-				Cve202543529 *struct{} `json:"CVE-2025-43529,omitempty"`
+				Cve202543529 *struct {
+					InKev    bool   `json:"in_kev"`
+					NistURL  string `json:"nist_url"`
+					Severity string `json:"severity"`
+				} `json:"CVE-2025-43529,omitempty"`
 				Cve202543531 *struct{} `json:"CVE-2025-43531,omitempty"`
 				Cve202543532 *struct{} `json:"CVE-2025-43532,omitempty"`
 				Cve202543533 *struct{} `json:"CVE-2025-43533,omitempty"`
@@ -59,7 +63,7 @@ type TVOSV2FeedResponse struct {
 				Cve20259086 *struct{} `json:"CVE-2025-9086,omitempty"`
 			} `json:"CVEs"`
 			DaysSincePreviousRelease int      `json:"DaysSincePreviousRelease"`
-			ExpirationDate           string   `json:"ExpirationDate"`
+			ExpirationDate           string   `json:"ExpirationDate,omitempty"`
 			ProductName              string   `json:"ProductName"`
 			ProductVersion           string   `json:"ProductVersion"`
 			ReleaseDate              string   `json:"ReleaseDate"`
@@ -345,7 +349,11 @@ type TVOSV2FeedResponse struct {
 				Cve202543480 *struct{} `json:"CVE-2025-43480,omitempty"`
 				Cve202543510 *struct{} `json:"CVE-2025-43510,omitempty"`
 				Cve202543520 *struct{} `json:"CVE-2025-43520,omitempty"`
-				Cve202543529 *struct{} `json:"CVE-2025-43529,omitempty"`
+				Cve202543529 *struct {
+					InKev    bool   `json:"in_kev"`
+					NistURL  string `json:"nist_url"`
+					Severity string `json:"severity"`
+				} `json:"CVE-2025-43529,omitempty"`
 				Cve202543531 *struct{} `json:"CVE-2025-43531,omitempty"`
 				Cve202543532 *struct{} `json:"CVE-2025-43532,omitempty"`
 				Cve202543533 *struct{} `json:"CVE-2025-43533,omitempty"`
