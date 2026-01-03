@@ -5,9 +5,10 @@ import (
 )
 
 type TVOSV2FeedResponse struct {
-	LastCheck  time.Time `json:"LastCheck"`
-	OSName     string    `json:"OSName"`
-	OSVersions []struct {
+	BackgroundSecurityImprovements struct{}  `json:"BackgroundSecurityImprovements"`
+	LastCheck                      time.Time `json:"LastCheck"`
+	OSName                         string    `json:"OSName"`
+	OSVersions                     []struct {
 		Latest struct {
 			ActivelyExploitedCvEs []string `json:"ActivelyExploitedCVEs"`
 			AllBuilds             []string `json:"AllBuilds"`
