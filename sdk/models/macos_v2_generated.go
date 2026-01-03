@@ -5,7 +5,8 @@ import (
 )
 
 type MacOSV2FeedResponse struct {
-	InstallationApps struct {
+	BackgroundSecurityImprovements struct{} `json:"BackgroundSecurityImprovements"`
+	InstallationApps               struct {
 		AllPreviousUma []struct {
 			AppleSlug   string    `json:"apple_slug"`
 			Build       string    `json:"build"`
@@ -31,7 +32,97 @@ type MacOSV2FeedResponse struct {
 			Version     string    `json:"version"`
 		} `json:"LatestUMA"`
 	} `json:"InstallationApps"`
-	LastCheck  time.Time `json:"LastCheck"`
+	LastCheck time.Time `json:"LastCheck"`
+	Models    struct {
+		// "Mac13,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac13,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac14,10" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac14,12" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac14,13" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac14,14" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac14,15" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac14,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac14,3" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac14,5" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac14,6" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac14,7" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac14,8" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac14,9" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac15,10" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac15,11" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac15,12" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac15,13" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac15,14" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac15,3" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac15,4" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac15,5" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac15,6" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac15,7" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac15,8" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac15,9" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac16,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac16,10" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac16,11" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac16,12" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac16,13" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac16,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac16,3" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac16,5" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac16,6" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac16,7" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac16,8" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac16,9" cannot be unmarshalled into a struct field by encoding/json.
+		// "Mac17,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBook10,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBook9,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookAir10,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookAir7,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookAir7,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookAir8,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookAir8,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookAir9,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro11,4" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro11,5" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro12,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro13,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro13,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro13,3" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro14,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro14,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro14,3" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro15,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro15,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro15,3" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro15,4" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro16,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro16,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro16,3" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro16,4" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro17,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro18,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro18,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro18,3" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacBookPro18,4" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacPro6,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "MacPro7,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "Macmini7,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "Macmini8,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "Macmini9,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac15,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac16,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac16,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac17,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac18,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac18,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac18,3" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac19,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac19,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac20,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac20,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac21,1" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMac21,2" cannot be unmarshalled into a struct field by encoding/json.
+		// "iMacPro1,1" cannot be unmarshalled into a struct field by encoding/json.
+	} `json:"Models"`
 	OSVersions []struct {
 		Latest struct {
 			ActivelyExploitedCvEs []string `json:"ActivelyExploitedCVEs"`
@@ -2650,7 +2741,100 @@ type MacOSV2FeedResponse struct {
 				Summary string `json:"summary"`
 			} `json:"update_summary"`
 		} `json:"SecurityReleases"`
-		SupportedModels []interface{} `json:"SupportedModels"`
+		SupportedModels []struct {
+			Identifiers struct {
+				// "Mac13,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac13,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac14,10" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac14,12" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac14,13" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac14,14" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac14,15" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac14,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac14,3" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac14,5" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac14,6" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac14,7" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac14,8" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac14,9" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac15,10" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac15,11" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac15,12" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac15,13" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac15,14" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac15,3" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac15,4" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac15,5" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac15,6" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac15,7" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac15,8" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac15,9" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac16,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac16,10" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac16,11" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac16,12" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac16,13" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac16,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac16,3" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac16,5" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac16,6" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac16,7" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac16,8" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac16,9" cannot be unmarshalled into a struct field by encoding/json.
+				// "Mac17,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBook10,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBook9,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookAir10,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookAir7,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookAir7,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookAir8,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookAir8,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookAir9,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro11,4" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro11,5" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro12,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro13,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro13,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro13,3" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro14,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro14,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro14,3" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro15,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro15,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro15,3" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro15,4" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro16,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro16,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro16,3" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro16,4" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro17,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro18,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro18,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro18,3" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacBookPro18,4" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacPro6,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "MacPro7,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "Macmini7,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "Macmini8,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "Macmini9,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac15,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac16,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac16,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac17,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac18,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac18,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac18,3" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac19,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac19,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac20,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac20,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac21,1" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMac21,2" cannot be unmarshalled into a struct field by encoding/json.
+				// "iMacPro1,1" cannot be unmarshalled into a struct field by encoding/json.
+			} `json:"Identifiers"`
+			Model string `json:"Model"`
+			URL   string `json:"URL"`
+		} `json:"SupportedModels"`
 	} `json:"OSVersions"`
 	UpdateHash       string `json:"UpdateHash"`
 	Version          string `json:"Version"`

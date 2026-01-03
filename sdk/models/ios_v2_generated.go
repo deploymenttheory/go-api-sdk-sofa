@@ -5,8 +5,9 @@ import (
 )
 
 type IOSFeedResponse struct {
-	LastCheck  time.Time `json:"LastCheck"`
-	OSVersions []struct {
+	BackgroundSecurityImprovements struct{}  `json:"BackgroundSecurityImprovements"`
+	LastCheck                      time.Time `json:"LastCheck"`
+	OSVersions                     []struct {
 		Latest struct {
 			ActivelyExploitedCvEs []string `json:"ActivelyExploitedCVEs"`
 			AllBuilds             []string `json:"AllBuilds"`
