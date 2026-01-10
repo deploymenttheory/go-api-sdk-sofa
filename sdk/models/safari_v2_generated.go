@@ -73,7 +73,13 @@ type SafariV2FeedResponse struct {
 				Cve202543536 *struct{} `json:"CVE-2025-43536,omitempty"`
 				Cve202543541 *struct{} `json:"CVE-2025-43541,omitempty"`
 				Cve202546282 *struct{} `json:"CVE-2025-46282,omitempty"`
-				Cve20256558  *struct {
+				Cve202546298 *struct{} `json:"CVE-2025-46298,omitempty"`
+				Cve202546299 *struct {
+					EntryAddedDate string   `json:"entry_added_date"`
+					NistURL        string   `json:"nist_url"`
+					Tags           []string `json:"tags"`
+				} `json:"CVE-2025-46299,omitempty"`
+				Cve20256558 *struct {
 					Exploited      bool   `json:"exploited"`
 					Kev            bool   `json:"kev"`
 					MatchedPattern string `json:"matched_pattern"`
@@ -534,7 +540,13 @@ type SafariV2FeedResponse struct {
 				Cve202543536 *struct{} `json:"CVE-2025-43536,omitempty"`
 				Cve202543541 *struct{} `json:"CVE-2025-43541,omitempty"`
 				Cve202546282 *struct{} `json:"CVE-2025-46282,omitempty"`
-				Cve20256558  *struct {
+				Cve202546298 *struct{} `json:"CVE-2025-46298,omitempty"`
+				Cve202546299 *struct {
+					EntryAddedDate string   `json:"entry_added_date"`
+					NistURL        string   `json:"nist_url"`
+					Tags           []string `json:"tags"`
+				} `json:"CVE-2025-46299,omitempty"`
+				Cve20256558 *struct {
 					Exploited      bool   `json:"exploited"`
 					Kev            bool   `json:"kev"`
 					MatchedPattern string `json:"matched_pattern"`
