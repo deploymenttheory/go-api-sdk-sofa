@@ -63,6 +63,8 @@ type VisionOSV2FeedResponse struct {
 				Cve202546285 *struct{} `json:"CVE-2025-46285,omitempty"`
 				Cve202546287 *struct{} `json:"CVE-2025-46287,omitempty"`
 				Cve202546288 *struct{} `json:"CVE-2025-46288,omitempty"`
+				Cve202546298 *struct{} `json:"CVE-2025-46298,omitempty"`
+				Cve202546299 *struct{} `json:"CVE-2025-46299,omitempty"`
 				Cve20256558  *struct {
 					InKev    bool   `json:"in_kev"`
 					NistURL  string `json:"nist_url"`
@@ -431,6 +433,8 @@ type VisionOSV2FeedResponse struct {
 				Cve202546285 *struct{} `json:"CVE-2025-46285,omitempty"`
 				Cve202546287 *struct{} `json:"CVE-2025-46287,omitempty"`
 				Cve202546288 *struct{} `json:"CVE-2025-46288,omitempty"`
+				Cve202546298 *struct{} `json:"CVE-2025-46298,omitempty"`
+				Cve202546299 *struct{} `json:"CVE-2025-46299,omitempty"`
 				Cve20256558  *struct {
 					InKev    bool   `json:"in_kev"`
 					NistURL  string `json:"nist_url"`
