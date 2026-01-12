@@ -50,12 +50,9 @@ type IOSV1FeedResponse struct {
 				Cve202546277 bool `json:"CVE-2025-46277"`
 				Cve202546279 bool `json:"CVE-2025-46279"`
 				Cve202546285 bool `json:"CVE-2025-46285"`
-				Cve202546286 bool `json:"CVE-2025-46286"`
 				Cve202546287 bool `json:"CVE-2025-46287"`
 				Cve202546288 bool `json:"CVE-2025-46288"`
 				Cve202546292 bool `json:"CVE-2025-46292"`
-				Cve202546298 bool `json:"CVE-2025-46298"`
-				Cve202546299 bool `json:"CVE-2025-46299"`
 				Cve20255918  bool `json:"CVE-2025-5918"`
 				Cve20256558  bool `json:"CVE-2025-6558,omitempty"`
 				Cve20257424  bool `json:"CVE-2025-7424"`
@@ -823,12 +820,9 @@ type IOSV1FeedResponse struct {
 				Cve202546277 bool `json:"CVE-2025-46277"`
 				Cve202546279 bool `json:"CVE-2025-46279"`
 				Cve202546285 bool `json:"CVE-2025-46285"`
-				Cve202546286 bool `json:"CVE-2025-46286"`
 				Cve202546287 bool `json:"CVE-2025-46287"`
 				Cve202546288 bool `json:"CVE-2025-46288"`
 				Cve202546292 bool `json:"CVE-2025-46292"`
-				Cve202546298 bool `json:"CVE-2025-46298"`
-				Cve202546299 bool `json:"CVE-2025-46299"`
 				Cve20255918  bool `json:"CVE-2025-5918"`
 				Cve20256558  bool `json:"CVE-2025-6558,omitempty"`
 				Cve20256965  bool `json:"CVE-2025-6965"`
