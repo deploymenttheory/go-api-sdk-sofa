@@ -1886,6 +1886,7 @@ type MacOSV2FeedResponse struct {
 				Cve202444205 *struct{} `json:"CVE-2024-44205,omitempty"`
 				Cve202444206 *struct{} `json:"CVE-2024-44206,omitempty"`
 				Cve202444208 *struct{} `json:"CVE-2024-44208,omitempty"`
+				Cve202444210 *struct{} `json:"CVE-2024-44210,omitempty"`
 				Cve202444211 *struct{} `json:"CVE-2024-44211,omitempty"`
 				Cve202444212 *struct{} `json:"CVE-2024-44212,omitempty"`
 				Cve202444213 *struct{} `json:"CVE-2024-44213,omitempty"`
@@ -1906,6 +1907,7 @@ type MacOSV2FeedResponse struct {
 				Cve202444234 *struct{} `json:"CVE-2024-44234,omitempty"`
 				Cve202444236 *struct{} `json:"CVE-2024-44236,omitempty"`
 				Cve202444237 *struct{} `json:"CVE-2024-44237,omitempty"`
+				Cve202444238 *struct{} `json:"CVE-2024-44238,omitempty"`
 				Cve202444239 *struct{} `json:"CVE-2024-44239,omitempty"`
 				Cve202444240 *struct{} `json:"CVE-2024-44240,omitempty"`
 				Cve202444241 *struct{} `json:"CVE-2024-44241,omitempty"`
@@ -2660,6 +2662,7 @@ type MacOSV2FeedResponse struct {
 				Cve202543503 *struct{} `json:"CVE-2025-43503,omitempty"`
 				Cve202543506 *struct{} `json:"CVE-2025-43506,omitempty"`
 				Cve202543507 *struct{} `json:"CVE-2025-43507,omitempty"`
+				Cve202543508 *struct{} `json:"CVE-2025-43508,omitempty"`
 				Cve202543509 *struct{} `json:"CVE-2025-43509,omitempty"`
 				Cve202543510 *struct{} `json:"CVE-2025-43510,omitempty"`
 				Cve202543511 *struct{} `json:"CVE-2025-43511,omitempty"`
