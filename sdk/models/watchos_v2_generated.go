@@ -10,49 +10,21 @@ type WatchOSV2FeedResponse struct {
 	OSName                         string    `json:"OSName"`
 	OSVersions                     []struct {
 		Latest struct {
-			ActivelyExploitedCvEs []string `json:"ActivelyExploitedCVEs"`
-			AllBuilds             []string `json:"AllBuilds"`
-			Build                 string   `json:"Build"`
-			CvEs                  struct {
-				Cve20247264  *struct{} `json:"CVE-2024-7264,omitempty"`
-				Cve202514174 *struct {
-					InKev    bool   `json:"in_kev"`
-					NistURL  string `json:"nist_url"`
-					Severity string `json:"severity"`
-				} `json:"CVE-2025-14174,omitempty"`
-				Cve202543511 *struct{} `json:"CVE-2025-43511,omitempty"`
-				Cve202543518 *struct{} `json:"CVE-2025-43518,omitempty"`
-				Cve202543529 *struct {
-					InKev    bool   `json:"in_kev"`
-					NistURL  string `json:"nist_url"`
-					Severity string `json:"severity"`
-				} `json:"CVE-2025-43529,omitempty"`
-				Cve202543531 *struct{} `json:"CVE-2025-43531,omitempty"`
-				Cve202543532 *struct{} `json:"CVE-2025-43532,omitempty"`
-				Cve202543533 *struct{} `json:"CVE-2025-43533,omitempty"`
-				Cve202543538 *struct{} `json:"CVE-2025-43538,omitempty"`
-				Cve202543539 *struct{} `json:"CVE-2025-43539,omitempty"`
-				Cve202546276 *struct{} `json:"CVE-2025-46276,omitempty"`
-				Cve202546277 *struct{} `json:"CVE-2025-46277,omitempty"`
-				Cve202546279 *struct{} `json:"CVE-2025-46279,omitempty"`
-				Cve202546285 *struct{} `json:"CVE-2025-46285,omitempty"`
-				Cve202546287 *struct{} `json:"CVE-2025-46287,omitempty"`
-				Cve202546288 *struct{} `json:"CVE-2025-46288,omitempty"`
-				Cve202546298 *struct{} `json:"CVE-2025-46298,omitempty"`
-				Cve202546299 *struct{} `json:"CVE-2025-46299,omitempty"`
-				Cve20259086  *struct{} `json:"CVE-2025-9086,omitempty"`
-			} `json:"CVEs"`
-			DaysSincePreviousRelease int      `json:"DaysSincePreviousRelease"`
-			ExpirationDate           string   `json:"ExpirationDate"`
-			ProductName              string   `json:"ProductName"`
-			ProductVersion           string   `json:"ProductVersion"`
-			ReleaseDate              string   `json:"ReleaseDate"`
-			ReleaseType              string   `json:"ReleaseType"`
-			SecurityInfo             string   `json:"SecurityInfo"`
-			SecurityInfoContext      string   `json:"SecurityInfoContext"`
-			SupportedDevices         []string `json:"SupportedDevices"`
-			UniqueCvEsCount          int      `json:"UniqueCVEsCount"`
-			UpdateName               string   `json:"UpdateName"`
+			ActivelyExploitedCvEs    []interface{} `json:"ActivelyExploitedCVEs"`
+			AllBuilds                []string      `json:"AllBuilds"`
+			Build                    string        `json:"Build"`
+			CvEs                     struct{}      `json:"CVEs"`
+			DaysSincePreviousRelease int           `json:"DaysSincePreviousRelease"`
+			ExpirationDate           string        `json:"ExpirationDate"`
+			ProductName              string        `json:"ProductName"`
+			ProductVersion           string        `json:"ProductVersion"`
+			ReleaseDate              string        `json:"ReleaseDate"`
+			ReleaseType              string        `json:"ReleaseType"`
+			SecurityInfo             string        `json:"SecurityInfo"`
+			SecurityInfoContext      string        `json:"SecurityInfoContext"`
+			SupportedDevices         []string      `json:"SupportedDevices"`
+			UniqueCvEsCount          int           `json:"UniqueCVEsCount"`
+			UpdateName               string        `json:"UpdateName"`
 			UpdateSummary            struct {
 				Priority       string `json:"priority"`
 				Recommendation string `json:"recommendation"`

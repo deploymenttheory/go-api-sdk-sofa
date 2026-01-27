@@ -10,8 +10,6 @@ type IOSV1FeedResponse struct {
 			ActivelyExploitedCvEs []string `json:"ActivelyExploitedCVEs"`
 			Build                 string   `json:"Build"`
 			CvEs                  struct {
-				Cve20247264  bool `json:"CVE-2024-7264"`
-				Cve202514174 bool `json:"CVE-2025-14174,omitempty"`
 				Cve202524220 bool `json:"CVE-2025-24220"`
 				Cve202524224 bool `json:"CVE-2025-24224"`
 				Cve202531276 bool `json:"CVE-2025-31276"`
@@ -29,37 +27,8 @@ type IOSV1FeedResponse struct {
 				Cve202543226 bool `json:"CVE-2025-43226"`
 				Cve202543230 bool `json:"CVE-2025-43230"`
 				Cve202543282 bool `json:"CVE-2025-43282"`
-				Cve202543428 bool `json:"CVE-2025-43428"`
-				Cve202543475 bool `json:"CVE-2025-43475"`
-				Cve202543501 bool `json:"CVE-2025-43501"`
-				Cve202543511 bool `json:"CVE-2025-43511"`
-				Cve202543512 bool `json:"CVE-2025-43512"`
-				Cve202543518 bool `json:"CVE-2025-43518"`
-				Cve202543529 bool `json:"CVE-2025-43529,omitempty"`
-				Cve202543530 bool `json:"CVE-2025-43530"`
-				Cve202543531 bool `json:"CVE-2025-43531"`
-				Cve202543532 bool `json:"CVE-2025-43532"`
-				Cve202543533 bool `json:"CVE-2025-43533"`
-				Cve202543535 bool `json:"CVE-2025-43535"`
-				Cve202543536 bool `json:"CVE-2025-43536"`
-				Cve202543538 bool `json:"CVE-2025-43538"`
-				Cve202543539 bool `json:"CVE-2025-43539"`
-				Cve202543541 bool `json:"CVE-2025-43541"`
-				Cve202543542 bool `json:"CVE-2025-43542"`
-				Cve202546276 bool `json:"CVE-2025-46276"`
-				Cve202546277 bool `json:"CVE-2025-46277"`
-				Cve202546279 bool `json:"CVE-2025-46279"`
-				Cve202546285 bool `json:"CVE-2025-46285"`
-				Cve202546286 bool `json:"CVE-2025-46286"`
-				Cve202546287 bool `json:"CVE-2025-46287"`
-				Cve202546288 bool `json:"CVE-2025-46288"`
-				Cve202546292 bool `json:"CVE-2025-46292"`
-				Cve202546298 bool `json:"CVE-2025-46298"`
-				Cve202546299 bool `json:"CVE-2025-46299"`
-				Cve20255918  bool `json:"CVE-2025-5918"`
 				Cve20256558  bool `json:"CVE-2025-6558,omitempty"`
 				Cve20257424  bool `json:"CVE-2025-7424"`
-				Cve20259086  bool `json:"CVE-2025-9086"`
 			} `json:"CVEs"`
 			ProductVersion   string        `json:"ProductVersion"`
 			ReleaseDate      time.Time     `json:"ReleaseDate"`
