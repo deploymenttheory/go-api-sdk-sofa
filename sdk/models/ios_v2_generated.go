@@ -919,7 +919,6 @@ type IOSFeedResponse struct {
 				Cve202546292 *struct{} `json:"CVE-2025-46292,omitempty"`
 				Cve202546298 *struct{} `json:"CVE-2025-46298,omitempty"`
 				Cve202546299 *struct{} `json:"CVE-2025-46299,omitempty"`
-				Cve202546306 *struct{} `json:"CVE-2025-46306,omitempty"`
 				Cve202546316 *struct{} `json:"CVE-2025-46316,omitempty"`
 				Cve20255918  *struct{} `json:"CVE-2025-5918,omitempty"`
 				Cve20256558  *struct {
