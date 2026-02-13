@@ -10,21 +10,52 @@ type WatchOSV2FeedResponse struct {
 	OSName                         string    `json:"OSName"`
 	OSVersions                     []struct {
 		Latest struct {
-			ActivelyExploitedCvEs    []interface{} `json:"ActivelyExploitedCVEs"`
-			AllBuilds                []string      `json:"AllBuilds"`
-			Build                    string        `json:"Build"`
-			CvEs                     struct{}      `json:"CVEs"`
-			DaysSincePreviousRelease int           `json:"DaysSincePreviousRelease"`
-			ExpirationDate           string        `json:"ExpirationDate"`
-			ProductName              string        `json:"ProductName"`
-			ProductVersion           string        `json:"ProductVersion"`
-			ReleaseDate              string        `json:"ReleaseDate"`
-			ReleaseType              string        `json:"ReleaseType"`
-			SecurityInfo             string        `json:"SecurityInfo"`
-			SecurityInfoContext      string        `json:"SecurityInfoContext"`
-			SupportedDevices         []string      `json:"SupportedDevices"`
-			UniqueCvEsCount          int           `json:"UniqueCVEsCount"`
-			UpdateName               string        `json:"UpdateName"`
+			ActivelyExploitedCvEs []string `json:"ActivelyExploitedCVEs"`
+			AllBuilds             []string `json:"AllBuilds"`
+			Build                 string   `json:"Build"`
+			CvEs                  struct {
+				Cve202514174 *struct {
+					InKev    bool   `json:"in_kev"`
+					NistURL  string `json:"nist_url"`
+					Severity string `json:"severity"`
+				} `json:"CVE-2025-14174,omitempty"`
+				Cve202543529 *struct {
+					InKev    bool   `json:"in_kev"`
+					NistURL  string `json:"nist_url"`
+					Severity string `json:"severity"`
+				} `json:"CVE-2025-43529,omitempty"`
+				Cve202559375 *struct{} `json:"CVE-2025-59375,omitempty"`
+				Cve202620609 *struct{} `json:"CVE-2026-20609,omitempty"`
+				Cve202620611 *struct{} `json:"CVE-2026-20611,omitempty"`
+				Cve202620617 *struct{} `json:"CVE-2026-20617,omitempty"`
+				Cve202620627 *struct{} `json:"CVE-2026-20627,omitempty"`
+				Cve202620628 *struct{} `json:"CVE-2026-20628,omitempty"`
+				Cve202620634 *struct{} `json:"CVE-2026-20634,omitempty"`
+				Cve202620635 *struct{} `json:"CVE-2026-20635,omitempty"`
+				Cve202620641 *struct{} `json:"CVE-2026-20641,omitempty"`
+				Cve202620649 *struct{} `json:"CVE-2026-20649,omitempty"`
+				Cve202620650 *struct{} `json:"CVE-2026-20650,omitempty"`
+				Cve202620654 *struct{} `json:"CVE-2026-20654,omitempty"`
+				Cve202620667 *struct{} `json:"CVE-2026-20667,omitempty"`
+				Cve202620671 *struct{} `json:"CVE-2026-20671,omitempty"`
+				Cve202620675 *struct{} `json:"CVE-2026-20675,omitempty"`
+				Cve202620700 *struct {
+					InKev    bool   `json:"in_kev"`
+					NistURL  string `json:"nist_url"`
+					Severity string `json:"severity"`
+				} `json:"CVE-2026-20700,omitempty"`
+			} `json:"CVEs"`
+			DaysSincePreviousRelease int      `json:"DaysSincePreviousRelease"`
+			ExpirationDate           string   `json:"ExpirationDate"`
+			ProductName              string   `json:"ProductName"`
+			ProductVersion           string   `json:"ProductVersion"`
+			ReleaseDate              string   `json:"ReleaseDate"`
+			ReleaseType              string   `json:"ReleaseType"`
+			SecurityInfo             string   `json:"SecurityInfo"`
+			SecurityInfoContext      string   `json:"SecurityInfoContext"`
+			SupportedDevices         []string `json:"SupportedDevices"`
+			UniqueCvEsCount          int      `json:"UniqueCVEsCount"`
+			UpdateName               string   `json:"UpdateName"`
 			UpdateSummary            struct {
 				Priority       string `json:"priority"`
 				Recommendation string `json:"recommendation"`
@@ -331,17 +362,44 @@ type WatchOSV2FeedResponse struct {
 				Cve202546285 *struct{} `json:"CVE-2025-46285,omitempty"`
 				Cve202546287 *struct{} `json:"CVE-2025-46287,omitempty"`
 				Cve202546288 *struct{} `json:"CVE-2025-46288,omitempty"`
+				Cve202546290 *struct{} `json:"CVE-2025-46290,omitempty"`
 				Cve202546298 *struct{} `json:"CVE-2025-46298,omitempty"`
 				Cve202546299 *struct{} `json:"CVE-2025-46299,omitempty"`
+				Cve202546300 *struct{} `json:"CVE-2025-46300,omitempty"`
+				Cve202546301 *struct{} `json:"CVE-2025-46301,omitempty"`
+				Cve202546302 *struct{} `json:"CVE-2025-46302,omitempty"`
+				Cve202546303 *struct{} `json:"CVE-2025-46303,omitempty"`
+				Cve202546304 *struct{} `json:"CVE-2025-46304,omitempty"`
+				Cve202546305 *struct{} `json:"CVE-2025-46305,omitempty"`
+				Cve202559375 *struct{} `json:"CVE-2025-59375,omitempty"`
 				Cve20256558  *struct {
 					InKev    bool   `json:"in_kev"`
 					NistURL  string `json:"nist_url"`
 					Severity string `json:"severity"`
 				} `json:"CVE-2025-6558,omitempty"`
-				Cve20256965 *struct{} `json:"CVE-2025-6965,omitempty"`
-				Cve20257424 *struct{} `json:"CVE-2025-7424,omitempty"`
-				Cve20257425 *struct{} `json:"CVE-2025-7425,omitempty"`
-				Cve20259086 *struct{} `json:"CVE-2025-9086,omitempty"`
+				Cve20256965  *struct{} `json:"CVE-2025-6965,omitempty"`
+				Cve20257424  *struct{} `json:"CVE-2025-7424,omitempty"`
+				Cve20257425  *struct{} `json:"CVE-2025-7425,omitempty"`
+				Cve20259086  *struct{} `json:"CVE-2025-9086,omitempty"`
+				Cve202620609 *struct{} `json:"CVE-2026-20609,omitempty"`
+				Cve202620611 *struct{} `json:"CVE-2026-20611,omitempty"`
+				Cve202620617 *struct{} `json:"CVE-2026-20617,omitempty"`
+				Cve202620627 *struct{} `json:"CVE-2026-20627,omitempty"`
+				Cve202620628 *struct{} `json:"CVE-2026-20628,omitempty"`
+				Cve202620634 *struct{} `json:"CVE-2026-20634,omitempty"`
+				Cve202620635 *struct{} `json:"CVE-2026-20635,omitempty"`
+				Cve202620641 *struct{} `json:"CVE-2026-20641,omitempty"`
+				Cve202620649 *struct{} `json:"CVE-2026-20649,omitempty"`
+				Cve202620650 *struct{} `json:"CVE-2026-20650,omitempty"`
+				Cve202620654 *struct{} `json:"CVE-2026-20654,omitempty"`
+				Cve202620667 *struct{} `json:"CVE-2026-20667,omitempty"`
+				Cve202620671 *struct{} `json:"CVE-2026-20671,omitempty"`
+				Cve202620675 *struct{} `json:"CVE-2026-20675,omitempty"`
+				Cve202620700 *struct {
+					InKev    bool   `json:"in_kev"`
+					NistURL  string `json:"nist_url"`
+					Severity string `json:"severity"`
+				} `json:"CVE-2026-20700,omitempty"`
 			} `json:"CVEs"`
 			DaysSincePreviousRelease int      `json:"DaysSincePreviousRelease"`
 			ExpirationDate           string   `json:"ExpirationDate,omitempty"`
