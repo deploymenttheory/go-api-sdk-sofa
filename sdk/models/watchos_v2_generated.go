@@ -362,8 +362,15 @@ type WatchOSV2FeedResponse struct {
 				Cve202546285 *struct{} `json:"CVE-2025-46285,omitempty"`
 				Cve202546287 *struct{} `json:"CVE-2025-46287,omitempty"`
 				Cve202546288 *struct{} `json:"CVE-2025-46288,omitempty"`
+				Cve202546290 *struct{} `json:"CVE-2025-46290,omitempty"`
 				Cve202546298 *struct{} `json:"CVE-2025-46298,omitempty"`
 				Cve202546299 *struct{} `json:"CVE-2025-46299,omitempty"`
+				Cve202546300 *struct{} `json:"CVE-2025-46300,omitempty"`
+				Cve202546301 *struct{} `json:"CVE-2025-46301,omitempty"`
+				Cve202546302 *struct{} `json:"CVE-2025-46302,omitempty"`
+				Cve202546303 *struct{} `json:"CVE-2025-46303,omitempty"`
+				Cve202546304 *struct{} `json:"CVE-2025-46304,omitempty"`
+				Cve202546305 *struct{} `json:"CVE-2025-46305,omitempty"`
 				Cve202559375 *struct{} `json:"CVE-2025-59375,omitempty"`
 				Cve20256558  *struct {
 					InKev    bool   `json:"in_kev"`
